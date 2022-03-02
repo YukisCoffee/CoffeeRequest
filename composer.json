@@ -1,0 +1,40 @@
+{
+	"name": "yukiscoffee/coffeerequest",
+	"description": "A simple wrapper for PHP cURL.",
+	"keywords": [
+		"network",
+		"request",
+		"curl"
+	],
+	"homepage": "https://github.com/YukisCoffee/CoffeeRequest",
+	"license": "MIT",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Taniko Yamamoto",
+			"email": "kirasicecreamm@gmail.com",
+			"homepage": "https://github.com/YukisCoffee",
+			"role": "Developer"
+		},
+		{
+			"name": "Isabella",
+			"email": "kawapure@gmail.com",
+			"homepage": "https://kawapure.github.io",
+			"role": "Contributor"
+		},
+		{
+			"name": "Aubrey Pankow",
+			"email": "aubyomori@gmail.com",
+			"homepage": "https://aubymori.github.io",
+			"role": "Contributor"
+		}
+	],
+	"require": {
+		"php": ">=7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"YukisCoffee\\CoffeeRequest\\": "src"
+		}
+	}
+}
