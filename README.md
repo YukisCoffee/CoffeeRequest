@@ -1,4 +1,4 @@
-# CoffeeRequest V1
+# CoffeeRequest V2
 
 A simple wrapper for cURL in PHP.
 
@@ -10,6 +10,10 @@ The recommended installation method is via [Composer](//getcomposer.org):
 composer require yukiscoffee/coffeerequest:1.0
 ```
 
+## Notice
+
+Static use of the CoffeeRequest API has been deprecated in V2. You should adjust existing code to use an instance instead.
+
 ## Usage
 
 Performing a network request with CoffeeRequest v1 is simple. The `request()` API has you covered!
@@ -17,7 +21,8 @@ Performing a network request with CoffeeRequest v1 is simple. The `request()` AP
 ```php
 use YukisCoffee\CoffeeRequest\CoffeeRequest;
 
-$responseText = CoffeeRequest::request("http://example.org");
+$coffeeRequest = new CoffeeRequest();
+$responseText = $coffeeRequest->request("http://example.org");
 echo $responseText;
 ```
 
@@ -37,10 +42,12 @@ Asynchronous requesting is supported via the `queueRequest()` and `runQueue()` f
 ```php
 use YukisCoffee\CoffeeRequest\CoffeeRequest;
 
-CoffeeRequest::queueRequest("https://example.org", [], "example-1");
-CoffeeRequest::queueRequest("https://www.google.com", [], "example-2");
+$coffeeRequest = new CoffeeRequest();
 
-$responses = CoffeeRequest::runQueue();
+$coffeeRequest->queueRequest("https://example.org", [], "example-1");
+$coffeeRequest->queueRequest("https://www.google.com", [], "example-2");
+
+$responses = $coffeeRequest->runQueue();
 
 foreach ($responses as $id => $response)
 {
