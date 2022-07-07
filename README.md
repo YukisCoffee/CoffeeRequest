@@ -16,6 +16,15 @@ Static use of the CoffeeRequest API has been deprecated in V2. You should adjust
 
 ## Usage
 
+CoffeeRequest makes use of a Rehike convention in which `__initStatic()` is called automatically by the autoloader to initialize classes. If you do not use an autoloader, then you will have to call this manually like such:
+
+```php
+include "CoffeeRequest.php";
+
+use YukisCoffee\CoffeeRequest\CoffeeRequest;
+CoffeeRequest::__initStatic();
+```
+
 Performing a network request with CoffeeRequest v1 is simple. The `request()` API has you covered!
 
 ```php
