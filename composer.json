@@ -1,10 +1,14 @@
 {
 	"name": "yukiscoffee/coffeerequest",
-	"description": "A simple wrapper for PHP cURL.",
+	"description": "An asynchronous PHP network request library.",
 	"keywords": [
 		"network",
 		"request",
-		"curl"
+		"curl",
+		"async",
+		"asynchronous",
+		"promises",
+		"future"
 	],
 	"homepage": "https://github.com/YukisCoffee/CoffeeRequest",
 	"license": "MIT",
@@ -30,7 +34,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.0"
+		"php": ">=7.2"
 	},
 	"autoload": {
 		"psr-4": {
