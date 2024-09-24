@@ -4,7 +4,7 @@ spl_autoload_register(function($className) {
 
     var_dump(str_replace("\\", "/", __DIR__));
 
-    include explode("Test", str_replace("\\", "/", __DIR__))[0] . 
+    include  explode("test", str_replace("\\", "/", __DIR__))[0] . "src" .
         str_replace("YukisCoffee/CoffeeRequest", "", $className) .
         ".php"
     ;

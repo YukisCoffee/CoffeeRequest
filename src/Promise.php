@@ -155,7 +155,7 @@ class Promise/*<T>*/
 
             if ($reflection->isGenerator())
             {
-                PromiseEvent/*<mixed>*/::fromAnonPromise(
+                PromiseEvent::fromAnonPromise(
                     $this, 
                     $cb,
                     $this->getResolveApi(),

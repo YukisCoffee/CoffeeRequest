@@ -22,6 +22,19 @@ function testPromise(): Promise/*<string>*/
     });
 }
 
+function testPromise2(): Promise/*<string>*/
+{
+    return new Promise/*<string>*/(function ($resolve, $reject): Generator/*<void>*/ {
+        yield;
+
+        $resolve("Hello world from test promise 2!");
+
+        echo "\nThis will never be seen\n";
+
+        $reject("This will never be sent.");
+    });
+}
+
 /*
  * Non-generator anon Promises are handled synchronously. This is because
  * it's hard to create a Generator from a standard anonymous function.
@@ -49,6 +62,19 @@ function lastPromise(): Promise/*<string>*/
 }
 
 testPromise()
+    ->then(function (string $result): void {
+        // This should never run because the Promise is rejected
+        // before it is resolved.
+        echo "\n\n" . $result;
+    })
+    ->catch(function (Exception $e): void {
+        // This, on the other hand, should run and echo the Exception's
+        // message.
+        echo "\n\n" . $e->getMessage();
+    })
+;
+
+testPromise2()
     ->then(function (string $result): void {
         // This should never run because the Promise is rejected
         // before it is resolved.
